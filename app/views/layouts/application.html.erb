@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Anguba</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= nav_bar fixed: :top, brand: "Anguba", responsive: true do %>
+  <%= menu_group do %>
+    <%= menu_item "Home", root_path %>
+    <%= menu_divider %>
+    <%= drop_down "find something" do %>
+      <%=menu_item "thind one" %>
+      <%=menu_item "thing two" %>
+      <%=menu_item "thind three" %>
+    <% end %>
+    <%= menu_item "About us" %>
+    <%= menu_item "Contact" %>
+  <% end %>
+  <%= menu_group pull: :right do %>
+    <%= menu_item "Log out"%>
+    <%= menu_item "log in" %>
+  <% end %>
+<% end %>
+<%= yield %>
+<%= badge(12, :warning)  %>
+<%= tag_label('Get!', :success)  %>
+<%= glyph(:pencil) %>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
+</html>
